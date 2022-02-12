@@ -33,7 +33,6 @@ export default function App() {
       const listAccs = await provider.listAccounts()
       const balance = await provider.getBalance(listAccs[0])
       const formattedBalance = ethers.utils.formatEther(balance)
-      console.log('balance ', formattedBalance)
       setBalance(formattedBalance)
     }
     fetchBalance();

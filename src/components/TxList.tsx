@@ -1,6 +1,5 @@
 export default function TxList({ txs }: TxListProps) {
     if (txs.length === 0) return null;
-    console.log('txs ', txs)
     return (
       <>
         {txs.map((item) => (
