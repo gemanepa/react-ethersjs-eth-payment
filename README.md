@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# React + ethersjs Ethereum Metamask Payment dApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Typescript dApp that allows Ethereum payments through Metamask using ethers.js
 
 ## Available Scripts
 
