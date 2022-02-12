@@ -1,0 +1,26 @@
+.App-logo {
+  height: 8vh;
+  width: 8vw;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
