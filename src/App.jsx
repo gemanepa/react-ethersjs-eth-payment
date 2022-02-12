@@ -28,12 +28,15 @@ export default function App() {
 
   useEffect(() => {
     async function fetchBalance() {
-      await window.ethereum.send("eth_requestAccounts");
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const listAccs = await provider.listAccounts()
-      const balance = await provider.getBalance(listAccs[0])
-      const formattedBalance = ethers.utils.formatEther(balance)
-      setBalance(formattedBalance)
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const listAccs = await provider.listAccounts()
+        const balance = await provider.getBalance(listAccs[0])
+        const formattedBalance = ethers.utils.formatEther(balance)
+        setBalance(formattedBalance)
+      } else {
+        setError("No crypto wallet found. Please install it.");
+      }
     }
     fetchBalance();
   }, [])
