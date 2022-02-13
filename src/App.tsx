@@ -11,19 +11,24 @@ import startPayment from "./utils/startPayment";
 import { NO_ETH_BROWSER_WALLET, FAILED_TO_CONNECT } from "./constants/error";
 import "./App.css";
 
+const storagedTxs: Transaction[] = JSON.parse(localStorage.getItem('txs') || '[]');
+
 export default function App() {
   const [error, setError] = useState('');
-  const [txs, setTxs] = useState<Transaction[]>([]);
+  const [txs, setTxs] = useState<Transaction[]>(storagedTxs);
   const [siteConnected, setSiteConnected] = useState(false);
   const [balance, setBalance] = useState("");
 
   const handleNewTx = (tx: Transaction) => {
-    setTxs([...txs, tx]);
+    const updatedTxs: Transaction[] = [...txs, tx];
+    setTxs(updatedTxs);
+    localStorage.setItem('txs', JSON.stringify(updatedTxs))
     setBalance(
       // @ts-ignore
       (Number(balance) - tx.gasPrice - tx.value).toString()
     );
   };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const data = new FormData(e.target);
