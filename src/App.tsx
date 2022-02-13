@@ -44,8 +44,7 @@ export default function App() {
   const handleInitialConnection = async (account: string) => {
     setSiteConnected(true);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const listAccs = await provider.listAccounts();
-    const balance = await provider.getBalance(listAccs[0]);
+    const balance = await provider.getBalance(account);
     const formattedBalance = ethers.utils.formatEther(balance);
     if (formattedBalance) setBalance(formattedBalance.toString());
   };
@@ -106,7 +105,7 @@ export default function App() {
               handleBtnConnectSiteClick={handleBtnConnectSiteClick}
             />
             <ErrorMessage message={error} />
-            <TxList txs={txs} />
+            {siteConnected && <TxList txs={txs} />}
           </div>
         </main>
       </form>
