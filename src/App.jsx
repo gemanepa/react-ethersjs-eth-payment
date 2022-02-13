@@ -29,11 +29,16 @@ export default function App() {
   useEffect(() => {
     async function fetchBalance() {
       if (window.ethereum) {
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const listAccs = await provider.listAccounts()
-        const balance = await provider.getBalance(listAccs[0])
-        const formattedBalance = ethers.utils.formatEther(balance)
-        if(formattedBalance) setBalance(formattedBalance)
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          const listAccs = await provider.listAccounts()
+          const balance = await provider.getBalance(listAccs[0])
+          const formattedBalance = ethers.utils.formatEther(balance)
+          if(formattedBalance) setBalance(formattedBalance)
+        } catch(e) {
+          setError("Unable to connect site to Metamask account");
+        }
       } else {
         setError("No crypto wallet found. Please install it.");
       }
