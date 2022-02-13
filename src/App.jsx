@@ -33,7 +33,7 @@ export default function App() {
         const listAccs = await provider.listAccounts()
         const balance = await provider.getBalance(listAccs[0])
         const formattedBalance = ethers.utils.formatEther(balance)
-        setBalance(formattedBalance)
+        if(formattedBalance) setBalance(formattedBalance)
       } else {
         setError("No crypto wallet found. Please install it.");
       }
