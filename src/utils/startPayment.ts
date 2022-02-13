@@ -13,8 +13,8 @@ const startPayment = async ({ setError, handleNewTx, ether, addr }: StartPayment
         value: ethers.utils.parseEther(ether)
       });
       
-      const gasPrice = ethers.utils.formatEther(Number(tx.gasPrice))
-      const value = ethers.utils.formatEther(tx.value)
+      const gasPrice = Number(ethers.utils.formatEther(Number(tx.gasPrice)))
+      const value = Number(ethers.utils.formatEther(tx.value))
 
       handleNewTx({ hash: tx.hash, gasPrice, value });
     } catch (err: any) {
@@ -29,6 +29,6 @@ type StartPayment = {
     addr: string;
 }
 
-type HandleNewTxt = { hash: string, gasPrice: string, value: string }
+type HandleNewTxt = { hash: string, gasPrice: number, value: number }
 
 export default startPayment;
