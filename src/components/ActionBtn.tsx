@@ -10,7 +10,7 @@ const payBtn = (
 const ActionBtn = ({ siteConnected, handleBtnConnectSiteClick }: ActionBtnProps) => {
   const connectSiteBtn = (
     <button type="button" className={btnClass} onClick={() => handleBtnConnectSiteClick()}>
-      Connect site to Metamask Account
+      Connect Browser Wallet
     </button>
   );
 

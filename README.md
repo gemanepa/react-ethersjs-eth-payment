@@ -1,6 +1,6 @@
-# React + ethersjs Ethereum Metamask Payment dApp
+# React + ethersjs Ethereum Payment dApp
 
-React Typescript dApp that allows Ethereum payments through Metamask using ethers.js
+React Typescript dApp that allows Ethereum transactions and payments through ethereum browser wallets (Metamask, Trust Wallet, Coinbase Wallet, etc) using ethers.js
 
 ## Available Scripts
 
