@@ -1,9 +1,10 @@
 import { ethers } from "ethers";
+import { NO_ETH_BROWSER_WALLET } from '../constants/error';
 
 const startPayment = async ({ setError, handleNewTx, ether, addr }: StartPayment) => {
     try {
       if (!window.ethereum)
-        throw new Error("No crypto wallet found. Please install it.");
+        throw new Error(NO_ETH_BROWSER_WALLET);
   
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
