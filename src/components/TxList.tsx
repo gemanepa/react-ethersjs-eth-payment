@@ -16,5 +16,5 @@ export default function TxList({ txs }: TxListProps) {
   }
   
 type TxListProps = {
-  txs: { hash: string, value: number, gasPrice: number }[]
+  txs: { hash: string, value: string, gasPrice: string }[]
 }
