@@ -93,7 +93,7 @@ export default function App() {
     <>
       <Header />
       <form className="m-4" onSubmit={handleSubmit}>
-        <main className="credit-card w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
+        <main className="w-full lg:w-1/2 sm:w-auto shadow-lg mx-auto rounded-xl bg-white">
           <div className="mt-4 p-4">
             <Title />
             <CurrentBalance balance={balance} />
