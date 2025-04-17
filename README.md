@@ -2,7 +2,7 @@
 
 React Typescript dApp that allows Ethereum transactions and payments through ethereum browser wallets (Metamask, Trust Wallet, Coinbase Wallet, etc) using ethers.js
 
-Live version: https://eth-payment.gemanepa.com
+
 ## Available Scripts
 
 In the project directory, you can run:
